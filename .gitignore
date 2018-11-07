@@ -1,0 +1,4 @@
+/.config/gcloud
+*.db
+*.log
+/**/tmp

@@ -13,7 +13,9 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Hack 11
+set_from_resource $font1        Theme.font1             monospace
+set_from_resource $fontsize1    Theme.fontsize1         35
+font pango:$font1 $fontsize1
 
 
 # Gaps stuff
@@ -25,19 +27,13 @@ gaps outer $default_gaps_outer
 
 # Colors 
 set $transparent 				#00000000
-set $barbackground 				#181512
-set_from_resource $white color7 		#a69181
-set_from_resource $darkwhite color15 		#eb8fcd
-set_from_resource $black color0 		#33302e
-set_from_resource $darkblack color8		#81776f
-set_from_resource $red color1 			#8c4c4c
-set_from_resource $darkred color9 		#9f5555
-set_from_resource $green color2 		#746c48
-set_from_resource $darkgreen color10 		#847b52
-set_from_resource $yellow color3 		#907245
-set_from_resource $darkyellow color11 		#9c7e53
-set_from_resource $magneta color5 		#604c5f
-set_from_resource $darkmagneta color13		#625665
+set $default                                    #FF00FF
+set_from_resource $active       Theme.accent    $default
+set_from_resource $inactive     Theme.bg1       $default
+set_from_resource $activetext   Theme.fg2       $default
+set_from_resource $inactivetext Theme.fg1       $default      
+set_from_resource $urgent       Theme.redish    $default
+set_from_resource $urgenttxt    Theme.fg1       $default 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -176,18 +172,19 @@ assign [class="^URxvt$"] $ws2
 assign [class="^code$"] $ws3
 assign [class="^slack$"] $ws4
 
-# Client Styling 		BORDER		BACKGROUND	TEXT		INDICATOR	CHILD_BORDER
-client.focused			$black		$darkyellow	$black   	$darkblack	$darkblack
-client.unfocused		$black		$black          $white		$darkblack	$darkblack
-client.focused_inactive		$black		$black		$darkblack      $darkblack	$darkblack
-client.urgent			$darkyellow	$darkyellow	$black		$darkyellow	$darkyellow
-client.background		$black
+for_window [class="^.*"] border normal 1
+
+# window color		        BORDER		BACKGROUND	TEXT		INDICATOR	
+client.focused			$active         $active   	$activetext	$active                
+client.unfocused		$inactive	$inactive	$inactivetext   $inactive	
+client.focused_inactive		$inactive	$inactive	$inactivetext   $inactive	
+client.urgent			$urgent	        $urgent	        $urgenttxt	$urgent	
 
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r exec $HOME/scripts/reloader
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -218,37 +215,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-        
-
-	output primary
-	output HDMI2
-	
-	status_command i3blocks
-	#i3bar_command i3bar -t
-	font pango:Hack
-	position top
-	strip_workspace_numbers yes
-	separator_symbol ":|:"
-	tray_padding 0
-	height $barheight
-
-	colors {
-	  background 	$transparent
-	  statusline 	$white
-	  separator	$transparent
-
-#				BORDER 		BACKGROUND		TEXT
-          active_workspace 	$transparent    $transparent		$darkred
-	  inactive_workspace	$transparent	$transparent		$darkyellow
-	  focused_workspace	$transparent	$transparent		$darkred
-	  urgent_workspace 	$darkyellow	$darkyellow		$transparent
-	  binding_mode		$darkyellow	$darkyellow		$transparent
-	}
-}
-
-
-# Wallpaper setup
+# Initializations
+set $HOME /home/aelnahas
+exec --no-startup-id reloader
 exec_always feh --bg-scale /home/aelnahas/.config/wallpaper/wallpaper.jpg
+exec_always start-polybar

@@ -1,0 +1,48 @@
+
+! ------ Define Colors
+! black
+URxvt.color0:       black
+URxvt.color8:       black2
+
+! red
+URxvt.color1:       red
+URxvt.color9:       red2
+
+! green
+URxvt.color2:       green
+URxvt.color10:      green2
+
+! yellow
+URxvt.color3:       yellow
+URxvt.color11:      yellow2
+
+! blue
+URxvt.color4:       blue
+URxvt.color12:      blue2
+
+! magenta
+URxvt.color5:       magenta
+URxvt.color13:      magenta2
+
+! cyan
+URxvt.color6:       cyan
+URxvt.color14:      cyan2
+
+! white
+URxvt.color7:       white
+URxvt.color15:      white2
+
+
+! ------ Themes ------------
+URxvt.foreground:           fg
+URxvt.background:           bg
+*fading:                    40
+*fadeColor:                 bg
+URxvt.cursorColor:          cyan
+*pointerColorBackground:    green2
+*pointerColorForefround:    cyan
+URxvt.cursorColor2:         bg
+URxvt*tintColor:            #ffffff
+URxvt*underlineColor:       yellow
+URxvt*highlightColor:       blue
+URxvt*highlightTextColor:   bg

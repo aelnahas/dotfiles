@@ -15,13 +15,16 @@
 ;   The README contains alot of information
 ;
 ;==========================================================
+[xresources]
+background = ${xrdb:Theme.accent:#222}
+
 
 [colors]
 ;background = ${xrdb:color0:#222}
-background = #222
+background = ${xrdb:Theme.accent:#222}
 background-alt = #444
 ;foreground = ${xrdb:color7:#222}
-foreground = #dfdfdf
+foreground = ${xrdb:Theme.fg2:#dfdfdf}
 foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
@@ -30,7 +33,7 @@ alert = #bd2c40
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 20
+height = 22
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 0
@@ -51,13 +54,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
+font-0 = Inconsolata:fontformat=truetype:size=12:antialias=true;2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm i3
-modules-center = mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-center = titlehook
+modules-right = pulseaudio memory cpu wlan battery date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -422,3 +425,18 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+; [module/titlescript]
+; type = custom/script
+; tail = true
+; label = %output%
+; interval = 3
+; exec = display-title
+
+[module/titlehook]
+type = custom/ipc
+hook-0 = display-title normal
+hook-1 = display-title switch 
+hook-2 = display-title switch 
+initial = 1
+click-left = polybar-msg hook titlehook 3
+; click-right = polybar-msg hook titlehook 3

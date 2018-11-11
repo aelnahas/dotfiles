@@ -1,0 +1,29 @@
+#define bg          #002b36
+#define fg          #839496
+
+#define black       #073642
+#define black2      #002d38
+
+#define red         #dc322f
+#define red2        #cb4b16
+
+#define green       #859900
+#define green2      #586e75
+
+#define yellow      #b58900
+#define yellow2     #657b83
+
+#define blue        #268bd2
+#define blue2       #839496
+
+#define magenta     #d33682
+#define magenta2    #6c71c4
+
+#define cyan        #2aa198 
+#define cyan2       #93a1a1
+
+#define white       #eee8d5
+#define white2      #fdf6e3
+
+#define transparent #00000000
+#define curserColor #f34b00

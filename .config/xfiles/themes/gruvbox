@@ -1,0 +1,31 @@
+! Gruvbox Theme
+
+#define bg        #252323
+#define fg        #bdae93
+
+#define black     bg
+#define black2    #32302F
+
+#define red       #cc241d
+#define red2      #9d0006
+
+#define green     #98971a
+#define green2    #79740e
+
+#define yellow    #d79921
+#define yellow2   #b57614
+
+#define blue      #458588
+#define blue2     #076678
+
+#define magenta   #b16286
+#define magenta2  #8f3f71
+
+#define cyan      #689d6a
+#define cyan2     #427b58
+
+#define white     #ebdbb2
+#define white2    #f9f5d7
+
+#define transparent #00000000
+#define curserColor #f34b00

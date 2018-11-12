@@ -12,8 +12,9 @@ Theme.bg1:          bg
 Theme.bg2:          bg
 Theme.fg1:          fg
 Theme.fg2:          white
-Theme.redish        red
+Theme.redish:       red
 Theme.accent:       cyan
+Theme.adarker:      black ! darker accent
 Theme.transparent:  transparent
 Theme.font1:        fnt1
 Theme.fontsize1:    fntsz1

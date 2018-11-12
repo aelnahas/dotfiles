@@ -19,10 +19,10 @@
 #define magenta     #d33682
 #define magenta2    #6c71c4
 
-#define cyan        #2aa198 
+#define cyan        #006767 
 #define cyan2       #93a1a1
 
-#define white       #eee8d5
+#define white       #d2ca9e
 #define white2      #fdf6e3
 
 #define transparent #00000000

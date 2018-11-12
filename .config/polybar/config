@@ -26,9 +26,9 @@ background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = ${xrdb:Theme.fg2:#dfdfdf}
 foreground-alt = #555
-primary = #ffb52a
-secondary = #e60053
-alert = #bd2c40
+primary =     #ffb52a
+secondary =   #e60053
+alert =       #bd2c40
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -58,9 +58,9 @@ font-0 = Inconsolata:fontformat=truetype:size=12:antialias=true;2
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm i3
+modules-left = i3
 modules-center = titlehook
-modules-right = pulseaudio memory cpu wlan battery date powermenu
+modules-right = pulseaudio wlan battery0 battery1 date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -138,7 +138,9 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
+strip-wsnumbers = true
 
+ws-icon-0 = 1:
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
@@ -167,6 +169,7 @@ label-urgent = %index%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
+; workspace labels
 ; Separator in between workspaces
 ; label-separator = |
 
@@ -331,9 +334,17 @@ bar-volume-empty = ─
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
-[module/battery]
+[module/battery0]
 type = internal/battery
 battery = BAT0
+adapter = AC
+full-at = 98
+format-charging-underline = #FF00FF
+format-discharging-underline = ${self.format-charging-underline}
+
+[module/battery1]
+type = internal/battery
+battery = BAT1
 adapter = AC
 full-at = 98
 
@@ -423,6 +434,10 @@ screenchange-reload = true
 [global/wm]
 margin-top = 5
 margin-bottom = 5
+
+[module/ac]
+type = custom/script
+
 
 ; vim:ft=dosini
 ; [module/titlescript]
